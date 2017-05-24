@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import '../scss/App.scss';
 import Home from './Home';
 
 export default class App extends React.Component {

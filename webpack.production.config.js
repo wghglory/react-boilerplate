@@ -8,7 +8,7 @@ const config = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js',
+    filename: 'bundle.min.js',
     publicPath: '/'
   },
   devtool: 'cheap-module-source-map',
@@ -24,18 +24,77 @@ const config = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { modules: false, importLoaders: 1 } },
+            {
+              loader: 'postcss-loader',
+              // Note: if postcss.config.js is in root, don't use config path. Use only file is another folder
+              // options: {
+              //   config: {
+              //     path: './config/postcss.config.js'
+              //   }
+              // }
+
+              // if not using postcss.config.js
+              // options: {
+              //   plugins: () => [
+              //     require('autoprefixer')(),
+              //     require('cssnano')()
+              //   ]
+              // }
+
+              options:
+              {
+                config: {
+                  ctx: {
+                    cssnano: {},
+                    autoprefixer: {}
+                  }
+                }
+              }
+            }
+          ]
+        }),
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: [
+            { loader: 'css-loader', options: { modules: false, importLoaders: 1 } },
+            {
+              loader: 'postcss-loader',
+              // Note: if postcss.config.js is in root, don't use config path. Use only file is another folder
+              // options: {
+              //   config: {
+              //     path: './config/postcss.config.js'
+              //   }
+              // }
+
+              // if not using postcss.config.js
+              // options: {
+              //   plugins: () => [
+              //     require('autoprefixer')(),
+              //     require('cssnano')()
+              //   ]
+              // }
+
+              options:
+              {
+                config: {
+                  ctx: {
+                    cssnano: {},
+                    autoprefixer: {}
+                  }
+                }
+              }
+            },
+            'sass-loader'
+          ]
         })
       },
       {
@@ -48,7 +107,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'app/index.html'
     }),
-    new ExtractTextPlugin('build.min.css'),
+    new ExtractTextPlugin('style.min.css'),
     // NODE_ENV in DefinePlugin: webpack will build this into bundle.js so React realizes it's for production now
     new webpack.DefinePlugin({
       'process.env': {
