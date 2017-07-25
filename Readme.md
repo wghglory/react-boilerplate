@@ -1,3 +1,3 @@
 # React Boilerplate
 
-Clone the repo, run `npm install`.
+Clone the repository, run `npm install`.
