@@ -17,8 +17,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi": [2, "always"],
-        "react/display-name": 0,
+        "semi": ["error", "always"],
+        "react/display-name": "off",
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-undef": "warn",

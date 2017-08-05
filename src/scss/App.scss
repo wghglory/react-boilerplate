@@ -11,9 +11,10 @@ h1 {
 body {
 
   @include clear;
-  @include fade-bg($light, $light-grey);
+  // @include fade-bg($light, $light-grey);
 
   div.app {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
