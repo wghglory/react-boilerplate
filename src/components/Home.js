@@ -7,8 +7,8 @@ function Home() {
   return (
     <div>
       <p>This is Home Component</p>
-      <img src={HomePic}/>
-      <div className="pic"></div>
+      <img src={HomePic} />
+      <div className="pic" />
     </div>
   );
 }

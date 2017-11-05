@@ -1,5 +1,3 @@
 import React from 'react';
 
-export default () => (
-  <p>About</p>
-);
+export default () => <p>About</p>;
