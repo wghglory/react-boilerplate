@@ -20,4 +20,3 @@ entry: ['babel-polyfill', './src/index.js'],
 ```javascript
 devtool: 'source-map',
 ```
-
