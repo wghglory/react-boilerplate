@@ -106,7 +106,9 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           },
           {
@@ -120,7 +122,9 @@ const config = {
             loader: 'sass-loader',
             options: {
               includePaths: [path.resolve(__dirname, 'src', 'scss')],
-              sourceMap: true
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
         ]
