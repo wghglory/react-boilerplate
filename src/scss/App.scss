@@ -1,6 +1,8 @@
 @import "globals";
 
-html, body, div#app {
+html,
+body,
+:global(div#app) {
   min-height: 100%;
 }
 
@@ -9,15 +11,13 @@ h1 {
 }
 
 body {
-
   @include clear;
   // @include fade-bg($light, $light-grey);
 
-  div.app {
+  :global(div.app) {
     padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
-
 }

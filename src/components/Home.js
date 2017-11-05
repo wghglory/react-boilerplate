@@ -1,6 +1,5 @@
-import '../scss/Home.scss';
+import css from '../scss/Home.scss';
 import React from 'react';
-import PropTypes from 'prop-types';
 import HomePic from '../assets/img/banner1.svg';
 
 function Home() {
@@ -8,13 +7,9 @@ function Home() {
     <div>
       <p>This is Home Component</p>
       <img src={HomePic} />
-      <div className="pic" />
+      <div className={css.pic} />
     </div>
   );
 }
-
-Home.propTypes = {
-  hello: PropTypes.string
-};
 
 export default Home;
