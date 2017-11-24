@@ -1,0 +1,97 @@
+@import "globals";
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  font-size: px2rem(16);
+}
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: px2rem(16);
+}
+a {
+  text-decoration: none;
+  font-size: px2rem(16);
+  font-family: "PingFang SC", sans-serif;
+}
+img {
+  border: none;
+  vertical-align: top;
+} /*图片下没缝隙用vertical-align*/
+th,
+td {
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+}
+form {
+  margin: 0;
+}
+input,
+button {
+  font-size: px2rem(16);
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  outline: none;
+  border: 0;
+  font-weight: 200;
+  -webkit-appearance: none;
+}
+
+@mixin placeholderMixin {
+  color: $lightGray;
+  font-size: px2rem(16);
+  font-weight: 200;
+  letter-spacing: 4px;
+}
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  @include placeholderMixin;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  @include placeholderMixin;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  @include placeholderMixin;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  @include placeholderMixin;
+}
+select {
+  margin: 0;
+}
+
+textarea {
+  margin: 0;
+  padding: 0;
+  resize: none;
+  overflow: auto;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+}

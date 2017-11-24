@@ -1,19 +1,58 @@
-@import "../../node_modules/_bootstrap@4.0.0-beta.2@bootstrap/scss/bootstrap.scss";
+// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-// // Core variables and mixins
-// @import "../../node_modules/bootstrap/scss/variables"; // copy from node_modules to project if needing to customize variable like color
-// @import "../../node_modules/bootstrap/scss/mixins";
+// Core variables and mixins
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables"; // copy from node_modules to project if needing to customize variable like color
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
 
-// // Reset and dependencies
-// @import "../../node_modules/bootstrap/scss/normalize";
+// Reset and dependencies
 // @import "../../node_modules/bootstrap/scss/print";
 
-// // Core CSS (comment out unneeded)
-// @import "../../node_modules/bootstrap/scss/reboot";
-// @import "../../node_modules/bootstrap/scss/type";
-// @import "../../node_modules/bootstrap/scss/images";
-// // @import "../../node_modules/bootstrap/scss/code";
-// @import "../../node_modules/bootstrap/scss/grid";
-// @import "../../node_modules/bootstrap/scss/tables";
-// @import "../../node_modules/bootstrap/scss/forms";
-// @import "../../node_modules/bootstrap/scss/buttons";
+// Core CSS (comment out unneeded)
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+
+// source: bootstrap.scss:
+
+// @import "functions";
+// @import "variables";
+// @import "mixins";
+// @import "root";
+// @import "print";
+// @import "reboot";
+// @import "type";
+// @import "images";
+// @import "code";
+// @import "grid";
+// @import "tables";
+// @import "forms";
+// @import "buttons";
+// @import "transitions";
+// @import "dropdown";
+// @import "button-group";
+// @import "input-group";
+// @import "custom-forms";
+// @import "nav";
+// @import "navbar";
+// @import "card";
+// @import "breadcrumb";
+// @import "pagination";
+// @import "badge";
+// @import "jumbotron";
+// @import "alert";
+// @import "progress";
+// @import "media";
+// @import "list-group";
+// @import "close";
+// @import "modal";
+// @import "tooltip";
+// @import "popover";
+// @import "carousel";
+// @import "utilities";

@@ -10,12 +10,12 @@ function Nav() {
   return (
     <ul className="nav">
       <li className="nav-item">
-        <NavLink exact className="nav-link" activeClassName="active" to="/">
+        <NavLink exact className="nav-link" activeClassName={css.active} to="/">
           Home
         </NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" activeClassName="active" to="/about">
+        <NavLink className="nav-link" activeClassName={css.active} to="/about">
           About
         </NavLink>
       </li>

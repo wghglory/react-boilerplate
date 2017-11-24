@@ -1,22 +1,39 @@
 $light: rgba(255, 255, 255, 1);
 $light-grey: rgba(229, 229, 229, 1);
 $red: #900;
-$font-heading: Verdana,
-sans-serif;
+$font-heading: Verdana, sans-serif;
 $break-sm: 700px;
 $break-md: 1100px;
 $break-lg: 1600px;
 $break-xl: 2000px;
+
+//基础font-size
+$font: 16;
+//设计稿宽度
+$screen: 375;
+@function px2rem($n) {
+  @return #{$n/($screen*$font/375)}rem;
+}
+
+@function calcPX($m,$n) {
+  @return calc(#{$m} - #{$n/($screen*$font/375)}rem);
+}
+
+$backgroundGray: rgb(250, 250, 250);
+$mainGreen: #00c993;
+$borderGray: #eee;
+$lightGray: #a4a7c0;
+
 @mixin shadow {
-    box-shadow: 3px 3px 8px 1px darken($light-grey, 20%);
+  box-shadow: 3px 3px 8px 1px darken($light-grey, 20%);
 }
 
 @mixin fade-bg($from, $to) {
-    background: $from;
-    background: linear-gradient(to bottom, $from 0%, $to 100%);
+  background: $from;
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
 }
 
 @mixin clear {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }

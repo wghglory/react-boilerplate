@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  font-family: "PingFang SC", sans-serif;
+}
+
+.gray {
+  background: rgb(250, 250, 250);
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexbox-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container,
+#root {
+  height: 100%;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
