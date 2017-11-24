@@ -12,6 +12,8 @@ const config = {
     // './src/webpack-public-path',
     // 'react-hot-loader/patch',
     // 'webpack-hot-middleware/client?reload=true',
+    // babel-polyfill: Uncaught ReferenceError: regeneratorRuntime is not defined
+    'babel-polyfill',
     path.resolve(__dirname, 'src/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
   ],
   target: 'web',

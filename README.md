@@ -5,10 +5,14 @@ Support css modules
 ## Running Project
 
 ```bash
-npm install
+yarn
 npm start
 ```
 
-## Issue
+## Caveat
 
-目前 css 实现了 modules，在引用 bootstrap 后常用 container 等 class 都会被处理。有问题，目前没有解决。不用 bootstrap 就没这个问题。
+目前 css 实现了 modules。对于一些 bootstrap 或者字体图标，通过以下方式不参与 css modules，全局样式。
+
+```javascript
+import '!style-loader!css-loader!sass-loader!./bootstrap/_core.scss';
+```
