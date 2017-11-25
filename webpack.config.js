@@ -7,20 +7,21 @@ const config = {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'cheap-module-eval-source-map', // more info:https://webpack.js.org/guides/development/#using-source-maps and https://webpack.js.org/configuration/devtool/
-  entry: [
+  entry: {
     // must be first entry to properly set public path
     // './src/webpack-public-path',
     // 'react-hot-loader/patch',
     // 'webpack-hot-middleware/client?reload=true',
     // babel-polyfill: Uncaught ReferenceError: regeneratorRuntime is not defined
-    'babel-polyfill',
-    path.resolve(__dirname, 'src/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
-  ],
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'prop-types', 'axios'],
+    app: [path.resolve(__dirname, 'src/index.js')]
+    // Defining path seems necessary for this to work consistently on Windows machines.
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   devServer: {
     historyApiFallback: true
@@ -40,6 +41,9 @@ const config = {
         collapseWhitespace: true
       },
       inject: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
     })
   ],
   module: {
@@ -96,6 +100,17 @@ const config = {
             loader: 'file-loader',
             options: {
               name: 'assets/img/[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]'
             }
           }
         ]

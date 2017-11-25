@@ -15,11 +15,16 @@ const config = {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'source-map', // more info:https://webpack.js.org/guides/production/#source-mapping and https://webpack.js.org/configuration/devtool/
-  entry: [
+  entry: {
+    // must be first entry to properly set public path
+    // './src/webpack-public-path',
+    // 'react-hot-loader/patch',
+    // 'webpack-hot-middleware/client?reload=true',
     // babel-polyfill: Uncaught ReferenceError: regeneratorRuntime is not defined
-    'babel-polyfill',
-    path.resolve(__dirname, 'src/index')
-  ],
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'prop-types', 'axios'],
+    app: [path.resolve(__dirname, 'src/index.js')]
+    // Defining path seems necessary for this to work consistently on Windows machines.
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -57,6 +62,9 @@ const config = {
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
       trackJSToken: ''
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
 
     // Minify JS
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
@@ -87,7 +95,7 @@ const config = {
             options: {
               limit: 10000,
               mimetype: 'application/font-woff',
-              name: 'assets/img/[name].[ext]'
+              name: '[name].[ext]'
             }
           }
         ]
@@ -124,7 +132,18 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]'
+              name: 'assets/img/[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]'
             }
           }
         ]
